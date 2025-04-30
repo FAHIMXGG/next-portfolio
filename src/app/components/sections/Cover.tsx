@@ -8,6 +8,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Facebook, Github, Linkedin, Twitter, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
+import { RiDiscordLine } from "react-icons/ri";
 
 const Cover = () => {
   return (
@@ -122,27 +125,27 @@ const Cover = () => {
                   </DialogContent>
                 </Dialog>
               </div>
-              <div className="mt-5 flex gap-3">
+              <div className="mt-5 flex gap-3 text-white items-center">
                 <a href="https://www.facebook.com/FAHIMX007/" target="_blank">
-                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"></button>
+                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><Facebook /></button>
                 </a>
                 <a href="https://twitter.com/fahim2259" target="_blank">
-                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"></button>
+                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><Twitter/></button>
                 </a>
                 <a href="https://www.linkedin.com/in/fahimx/" target="_blank">
-                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"></button>
+                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><Linkedin/></button>
                 </a>
                 <a href="https://github.com/FAHIMXGG" target="_blank">
-                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"></button>
+                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><Github/></button>
                 </a>
                 <a
                   href="https://discord.com/users/405654158901903361"
                   target="_blank"
                 >
-                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"></button>
+                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><RiDiscordLine /></button>
                 </a>
                 <a href="https://wa.link/a8gcn6" target="_blank">
-                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"></button>
+                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><FaWhatsapp /></button>
                 </a>
               </div>
             </div>
