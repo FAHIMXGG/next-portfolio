@@ -56,8 +56,8 @@ const Navbar = () => {
               }}
             >
               <Link href="/">Home</Link>
-              <Link href="/">About</Link>
-              <Link href="/">Skill</Link>
+              <Link href="#about">About</Link>
+              <Link href="#skill">Skill</Link>
               <Link href="/">Projects</Link>
             </motion.div>
           ) : (
