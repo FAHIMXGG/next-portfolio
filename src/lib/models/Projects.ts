@@ -18,6 +18,6 @@ const projectSchema = new mongoose.Schema({
   collection: 'projects_data' 
 });
 
-const Project = mongoose.model('Project', projectSchema);
+const Project = mongoose.models.Project || mongoose.model('Project', projectSchema);
 
 export default Project;

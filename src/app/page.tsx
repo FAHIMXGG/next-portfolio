@@ -1,5 +1,6 @@
 import MaxWidthWrapper from "./components/MaxWidthWrapper";
 import Cover from "./components/sections/Cover";
+import Projects from "./components/sections/Projects";
 import Skills from "./components/sections/Skills";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <div className="text-white">
         <Cover />
         <Skills/>
+        <Projects/>
       </div>
     </div>
   );
