@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import {Recursive} from 'next/font/google'
+import { ThemeProvider } from "./components/theme-provider";
 
 const inter = Recursive({subsets: ['latin']})
 
@@ -32,8 +33,10 @@ export default function RootLayout({
       <body
         className={inter.className}
       >
-        <Navbar/>
-        {children}
+        
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
