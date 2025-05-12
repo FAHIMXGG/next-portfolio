@@ -14,52 +14,6 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
   return (
     <section id="home" className="min-h-[calc(100vh-6rem)] flex flex-col justify-center relative overflow-hidden">
       {/* Animated Block Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative w-full h-full"
-        >
-          {Array.from({ length: 30 }).map((_, index) => {
-            // Generate random positions and sizes
-            const size = Math.floor(Math.random() * 80) + 40
-            const left = Math.floor(Math.random() * 100)
-            const top = Math.floor(Math.random() * 100)
-            const delay = Math.random() * 3
-            const duration = Math.random() * 8 + 8
-            const opacity = Math.random() * 0.15 + 0.05
-            const rotate = Math.floor(Math.random() * 360)
-
-            return (
-              <motion.div
-                key={`hero-block-${index}`}
-                className="absolute rounded-md bg-primary"
-                initial={{
-                  width: size,
-                  height: size,
-                  x: `${left}%`,
-                  y: `${top}%`,
-                  opacity: opacity,
-                  rotate: 0,
-                }}
-                animate={{
-                  rotate: rotate,
-                  opacity: [opacity, opacity * 2, opacity],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: duration,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                  delay: delay,
-                }}
-              />
-            )
-          })}
-        </motion.div>
-      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
@@ -149,7 +103,7 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/0 animate-pulse" />
             <div className="absolute inset-2 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=400"
+                src="https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2264922221.jpg"
                 alt="Developer"
                 width={400}
                 height={400}

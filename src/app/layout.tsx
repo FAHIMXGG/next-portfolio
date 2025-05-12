@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import {Recursive} from 'next/font/google'
 import { ThemeProvider } from "./components/theme-provider";
+import StarsCanvas from "./components/star-bg";
 
 const inter = Recursive({subsets: ['latin']})
 
@@ -35,6 +36,7 @@ export default function RootLayout({
       >
         
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <StarsCanvas/>
           {children}
         </ThemeProvider>
       </body>
