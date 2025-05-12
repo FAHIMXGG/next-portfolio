@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Header } from "./components/header"
 import { HeroSection } from "./components/sections/hero"
+import { AboutSection } from "./components/sections/about"
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
   const [mounted, setMounted] = useState(false)
@@ -51,7 +52,7 @@ export default function Portfolio() {
       <Header activeSection={activeSection} scrollToSection={scrollToSection} />
       <main className="container mx-auto px-4 pt-24">
         <HeroSection scrollToSection={scrollToSection} />
-        
+        <AboutSection/>
       </main>
     </div>
     // <div className="bg-slate-50">
