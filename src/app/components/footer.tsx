@@ -10,7 +10,7 @@ export function Footer() {
     <div className="flex fle-col justify-center"
     ><BlackHole/></div>
     
-    <div className="border-t bg-card/80 z-20 backdrop-blur-sm mt-[-188px] h-[190px]">
+    <div className="border-t relative bg-card/90 z-20 backdrop-blur-sm mt-[-188px] h-[190px]">
       <div className="container mx-auto px-4 py-8 relative ">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
