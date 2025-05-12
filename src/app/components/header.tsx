@@ -89,9 +89,9 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed inset-0 z-50 bg-background"
+            className="fixed inset-0 z-50 bg-background shadow-lg border-l dark:border-gray-800"
           >
-            <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div className="container mx-auto px-4 py-4 flex justify-between items-center bg-background border-b">
               <div className="flex items-center gap-2">
                 <Code className="h-6 w-6 text-primary" />
                 <span className="font-bold text-xl">
@@ -102,7 +102,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
                 <X className="h-6 w-6" />
               </Button>
             </div>
-            <div className="container mx-auto px-4 py-8 flex flex-col gap-6">
+            <div className="container mx-auto px-4 py-8 flex flex-col gap-6 bg-background">
               {["home", "about", "projects", "skills", "contact"].map((section) => (
                 <button
                   key={section}
