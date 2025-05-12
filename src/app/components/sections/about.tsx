@@ -284,7 +284,7 @@ export function AboutSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: item.delay + 0.3 }}
                       viewport={{ once: true }}
-                      className="pt-1 border rounded-lg p-4 shadow-sm w-full relative bg-slate-950/10 backdrop-blur z-10"
+                      className="pt-1 border rounded-lg p-4 shadow-sm w-full relative bg-slate-950/10 backdrop-blur-sm z-10"
                       whileHover={{
                         y: -5,
                         transition: { duration: 0.2 },
