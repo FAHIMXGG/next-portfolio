@@ -39,7 +39,7 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
               >
-                Hi, I'm <span className="text-primary">Your Name</span>
+                Hi, I'm <span className="text-primary">Ahasanul Haque</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -100,14 +100,14 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
           className="order-1 lg:order-2 flex justify-center"
         >
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/0 animate-pulse" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/100 to-primary/50 animate-pulse" />
             <div className="absolute inset-2 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center overflow-hidden">
               <Image
-                src="https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2264922221.jpg"
+                src="/profile/profile.png"
                 alt="Developer"
-                width={400}
-                height={400}
-                className="object-cover"
+                width={370}
+                height={370}
+                className="object-cover rounded-full"
               />
             </div>
           </div>
