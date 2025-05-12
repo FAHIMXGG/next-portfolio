@@ -2,11 +2,16 @@
 
 import { Code, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
+import BlackHole from "./blackhole"
 
 export function Footer() {
   return (
-    <footer className="border-t mt-20 bg-card/50 z-20 backdrop-blur-sm relative">
-      <div className="container mx-auto px-4 py-8 ">
+    <footer>
+    <div className="flex fle-col justify-center"
+    ><BlackHole/></div>
+    
+    <div className="border-t bg-card/80 z-20 backdrop-blur-sm mt-[-188px] h-[190px]">
+      <div className="container mx-auto px-4 py-8 relative ">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <Code className="h-5 w-5 text-primary" />
@@ -30,6 +35,7 @@ export function Footer() {
             </Link>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   )

@@ -111,7 +111,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section id="contact" className=" relative overflow-hidden">
       {/* Animated Block Background for Contact Section */}
       <div className="absolute inset-0 -z-10">
         <motion.div
