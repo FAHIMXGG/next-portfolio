@@ -12,7 +12,7 @@ export function ProjectsSection() {
     {
       title: "E-commerce Platform",
       description: "A full-stack e-commerce solution with Next.js, Stripe, and Supabase",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/e1.jpg",
       tags: ["Next.js", "Supabase", "Stripe", "Tailwind CSS"],
       link: "#",
       github: "#",
@@ -20,7 +20,7 @@ export function ProjectsSection() {
     {
       title: "AI Content Generator",
       description: "An AI-powered application that generates content using OpenAI's GPT-4",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/e1.jpg",
       tags: ["React", "Node.js", "OpenAI", "MongoDB"],
       link: "#",
       github: "#",
@@ -28,7 +28,7 @@ export function ProjectsSection() {
     {
       title: "Real-time Dashboard",
       description: "A real-time analytics dashboard with WebSockets and data visualization",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/e1.jpg",
       tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
       link: "#",
       github: "#",
