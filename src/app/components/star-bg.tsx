@@ -22,9 +22,13 @@ const StarBackground = (props: any) => {
   );
 
   // Rotate the starfield slowly
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+  // useFrame((state, delta) => {
+  //   ref.current.rotation.x -= delta / 20;
+  //   ref.current.rotation.y -= delta / 15;
+  // });
+   useFrame((state, delta) => {
+    ref.current.rotation.x += delta / 20; 
+    ref.current.rotation.y = 0; 
   });
 
   return (
