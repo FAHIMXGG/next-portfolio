@@ -1,39 +1,104 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Github } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion";
+import { ArrowRight, ChevronDown, ChevronUp, Github } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export function ProjectsSection() {
+  const [visibleProjects, setVisibleProjects] = useState(3);
   // Projects data
   const projects = [
     {
+      id: 1,
       title: "E-commerce Platform",
-      description: "A full-stack e-commerce solution with Next.js, Stripe, and Supabase",
+      description:
+        "A full-stack e-commerce solution with Next.js, Stripe, and Supabase",
       image: "/e1.jpg",
       tags: ["Next.js", "Supabase", "Stripe", "Tailwind CSS"],
       link: "#",
       github: "#",
     },
     {
+      id: 2,
       title: "AI Content Generator",
-      description: "An AI-powered application that generates content using OpenAI's GPT-4",
+      description:
+        "An AI-powered application that generates content using OpenAI's GPT-4",
       image: "/e1.jpg",
       tags: ["React", "Node.js", "OpenAI", "MongoDB"],
       link: "#",
       github: "#",
     },
     {
+      id: 3,
       title: "Real-time Dashboard",
-      description: "A real-time analytics dashboard with WebSockets and data visualization",
+      description:
+        "A real-time analytics dashboard with WebSockets and data visualization",
       image: "/e1.jpg",
       tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
       link: "#",
       github: "#",
     },
-  ]
+    {
+      id: 4,
+      title: "Real-time Dashboard",
+      description:
+        "A real-time analytics dashboard with WebSockets and data visualization",
+      image: "/e1.jpg",
+      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 5,
+      title: "Real-time Dashboard",
+      description:
+        "A real-time analytics dashboard with WebSockets and data visualization",
+      image: "/e1.jpg",
+      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 6,
+      title: "Real-time Dashboard",
+      description:
+        "A real-time analytics dashboard with WebSockets and data visualization",
+      image: "/e1.jpg",
+      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 7,
+      title: "Real-time Dashboard",
+      description:
+        "A real-time analytics dashboard with WebSockets and data visualization",
+      image: "/e1.jpg",
+      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      link: "#",
+      github: "#",
+    },
+  ];
+
+  // Function to handle "View More" button click
+  const handleViewMore = () => {
+    // If all projects are already visible, reset to show only 3
+    if (visibleProjects >= projects.length) {
+      setVisibleProjects(3);
+    } else {
+      // Otherwise, show 3 more projects
+      setVisibleProjects((prev) => Math.min(prev + 3, projects.length));
+    }
+  };
+
+  // Get only the projects that should be visible
+  const displayedProjects = projects.slice(0, visibleProjects);
+
+  // Check if all projects are visible
+  const allProjectsVisible = visibleProjects >= projects.length;
 
   return (
     <section id="projects" className="py-20">
@@ -45,15 +110,17 @@ export function ProjectsSection() {
         className="space-y-12"
       >
         <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">My Projects</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            My Projects
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and the technologies I've used
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -72,13 +139,13 @@ export function ProjectsSection() {
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                   <Link
                     href={project.link}
-                    className="rounded-full bg-white p-2 hover:bg-primary hover:text-white transition-colors"
+                    className="rounded-full bg-black p-2 hover:bg-primary hover:text-white transition-colors"
                   >
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                   <Link
                     href={project.github}
-                    className="rounded-full bg-white p-2 hover:bg-primary hover:text-white transition-colors"
+                    className="rounded-full bg-black p-2 hover:bg-primary hover:text-white transition-colors"
                   >
                     <Github className="h-5 w-5" />
                   </Link>
@@ -91,7 +158,7 @@ export function ProjectsSection() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-block px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary"
+                      className="inline-block px-2 py-1 text-xs font-bold rounded-full bg-primary/25 text-primary"
                     >
                       {tag}
                     </span>
@@ -101,12 +168,40 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </div>
-        <div className="text-center">
-          <Button variant="outline" size="lg" className="z-20 backdrop-blur-sm bg-card/40 relative">
-            View All Projects <ArrowRight className="ml-2 h-4 w-4" />
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleViewMore}
+            className="z-20 backdrop-blur-sm bg-card/40 relative group overflow-hidden"
+          >
+            <motion.div
+              className="flex items-center justify-center"
+              initial={false}
+              animate={{ y: 0 }}
+              whileTap={{ y: allProjectsVisible ? -5 : 5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              {allProjectsVisible ? (
+                <>
+                  Show Less{" "}
+                  <ChevronUp className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+                </>
+              ) : (
+                <>
+                  View More Projects{" "}
+                  <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+                </>
+              )}
+            </motion.div>
           </Button>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
