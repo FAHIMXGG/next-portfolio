@@ -1,22 +1,24 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, ChevronUp, Github } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { motion } from "framer-motion"
+import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Github } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { useState } from "react"
 
 export function ProjectsSection() {
-  const [visibleProjects, setVisibleProjects] = useState(3);
-  // Projects data
+  const [showPagination, setShowPagination] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 6
+
+  // Projects data - Expanded to 21 projects for perfect pagination (3 initial + 18 for 3 pages of 6 each)
   const projects = [
     {
       id: 1,
       title: "E-commerce Platform",
-      description:
-        "A full-stack e-commerce solution with Next.js, Stripe, and Supabase",
-      image: "/e1.jpg",
+      description: "A full-stack e-commerce solution with Next.js, Stripe, and Supabase",
+      image: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "Supabase", "Stripe", "Tailwind CSS"],
       link: "#",
       github: "#",
@@ -24,9 +26,8 @@ export function ProjectsSection() {
     {
       id: 2,
       title: "AI Content Generator",
-      description:
-        "An AI-powered application that generates content using OpenAI's GPT-4",
-      image: "/e1.jpg",
+      description: "An AI-powered application that generates content using OpenAI's GPT-4",
+      image: "/placeholder.svg?height=300&width=500",
       tags: ["React", "Node.js", "OpenAI", "MongoDB"],
       link: "#",
       github: "#",
@@ -34,71 +35,204 @@ export function ProjectsSection() {
     {
       id: 3,
       title: "Real-time Dashboard",
-      description:
-        "A real-time analytics dashboard with WebSockets and data visualization",
-      image: "/e1.jpg",
+      description: "A real-time analytics dashboard with WebSockets and data visualization",
+      image: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
       link: "#",
       github: "#",
     },
     {
       id: 4,
-      title: "Real-time Dashboard",
-      description:
-        "A real-time analytics dashboard with WebSockets and data visualization",
-      image: "/e1.jpg",
-      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      title: "Task Management App",
+      description: "A collaborative task management application with real-time updates",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React", "Firebase", "Material-UI", "TypeScript"],
       link: "#",
       github: "#",
     },
     {
       id: 5,
-      title: "Real-time Dashboard",
-      description:
-        "A real-time analytics dashboard with WebSockets and data visualization",
-      image: "/e1.jpg",
-      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      title: "Weather Forecast App",
+      description: "A responsive weather application with location-based forecasts",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Vue.js", "Weather API", "Chart.js", "PWA"],
       link: "#",
       github: "#",
     },
     {
       id: 6,
-      title: "Real-time Dashboard",
-      description:
-        "A real-time analytics dashboard with WebSockets and data visualization",
-      image: "/e1.jpg",
-      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      title: "Social Media Dashboard",
+      description: "A comprehensive social media management and analytics platform",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Next.js", "Prisma", "tRPC", "Tailwind CSS"],
       link: "#",
       github: "#",
     },
     {
       id: 7,
-      title: "Real-time Dashboard",
-      description:
-        "A real-time analytics dashboard with WebSockets and data visualization",
-      image: "/e1.jpg",
-      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
+      title: "Cryptocurrency Tracker",
+      description: "A real-time cryptocurrency price tracking and portfolio management app",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React", "Redux", "CoinGecko API", "Chart.js"],
       link: "#",
       github: "#",
     },
-  ];
+    {
+      id: 8,
+      title: "Recipe Sharing Platform",
+      description: "A community-driven platform for sharing and discovering recipes",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Next.js", "MongoDB", "Cloudinary", "NextAuth"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 9,
+      title: "Fitness Tracking App",
+      description: "A comprehensive fitness tracking application with workout plans",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React Native", "SQLite", "Redux", "Expo"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 10,
+      title: "Online Learning Platform",
+      description: "An interactive online learning platform with video courses",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Next.js", "Supabase", "Stripe", "Video.js"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 11,
+      title: "Chat Application",
+      description: "A real-time chat application with file sharing and group chats",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Socket.io", "Node.js", "MongoDB", "React"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 12,
+      title: "Portfolio Website",
+      description: "A modern portfolio website with animations and dark mode",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Next.js", "Framer Motion", "Tailwind CSS", "MDX"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 13,
+      title: "Inventory Management System",
+      description: "A comprehensive inventory tracking system for small businesses",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React", "Node.js", "MySQL", "Express"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 14,
+      title: "Music Streaming App",
+      description: "A Spotify-like music streaming application with playlists",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React", "Web Audio API", "Firebase", "Styled Components"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 15,
+      title: "Travel Booking Platform",
+      description: "A full-featured travel booking platform with payment integration",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 16,
+      title: "Code Editor",
+      description: "A web-based code editor with syntax highlighting and themes",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React", "Monaco Editor", "WebSockets", "Node.js"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 17,
+      title: "Event Management System",
+      description: "A comprehensive event planning and management platform",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Vue.js", "Laravel", "MySQL", "Bootstrap"],
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 18,
+      title: "Blog CMS",
+      description: "A headless CMS for managing blog content with rich text editor",
+      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Next.js", "Sanity", "GraphQL", "Tailwind CSS"],
+      link: "#",
+      github: "#",
+    },
+    
+  ]
 
   // Function to handle "View More" button click
   const handleViewMore = () => {
-    // If all projects are already visible, reset to show only 3
-    if (visibleProjects >= projects.length) {
-      setVisibleProjects(3);
-    } else {
-      // Otherwise, show 3 more projects
-      setVisibleProjects((prev) => Math.min(prev + 3, projects.length));
+    setShowPagination(true)
+    setCurrentPage(1)
+  }
+
+  // Calculate pagination
+  const totalPages = Math.ceil(projects.length / itemsPerPage)
+
+  // Get projects to display
+  const getDisplayedProjects = () => {
+    if (!showPagination) {
+      // Initially show first 3 projects
+      return projects.slice(0, 3)
     }
-  };
 
-  // Get only the projects that should be visible
-  const displayedProjects = projects.slice(0, visibleProjects);
+    // In pagination mode: show 6 per page from ALL projects (don't skip first 3)
+    const startIndex = (currentPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
 
-  // Check if all projects are visible
-  const allProjectsVisible = visibleProjects >= projects.length;
+    console.log("Pagination Debug:", {
+      totalProjects: projects.length,
+      currentPage,
+      itemsPerPage,
+      startIndex,
+      endIndex,
+      slicedProjects: projects.slice(startIndex, endIndex).length,
+      projectIds: projects.slice(startIndex, endIndex).map((p) => p.id),
+    })
+
+    return projects.slice(startIndex, endIndex)
+  }
+
+  const displayedProjects = getDisplayedProjects()
+
+  // Pagination handlers
+  const goToPage = (page: number) => {
+    console.log("goToPage called with:", page)
+    setCurrentPage(page)
+  }
+
+  const goToPrevious = () => {
+    console.log("goToPrevious called, current page:", currentPage)
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const goToNext = () => {
+    console.log("goToNext called, current page:", currentPage, "total pages:", totalPages)
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
 
   return (
     <section id="projects" className="py-20">
@@ -110,13 +244,12 @@ export function ProjectsSection() {
         className="space-y-12"
       >
         <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            My Projects
-          </h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">My Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and the technologies I've used
           </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedProjects.map((project, index) => (
             <motion.div
@@ -128,7 +261,7 @@ export function ProjectsSection() {
               whileHover={{ y: -5 }}
               className="group rounded-lg overflow-hidden border bg-card/50 text-card-foreground shadow transition-all z-20 backdrop-blur-sm"
             >
-              <div className="relative overflow-hidden bg">
+              <div className="relative overflow-hidden">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
@@ -139,13 +272,13 @@ export function ProjectsSection() {
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                   <Link
                     href={project.link}
-                    className="rounded-full bg-black p-2 hover:bg-primary hover:text-white transition-colors"
+                    className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
                   >
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                   <Link
                     href={project.github}
-                    className="rounded-full bg-black p-2 hover:bg-primary hover:text-white transition-colors"
+                    className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
                   >
                     <Github className="h-5 w-5" />
                   </Link>
@@ -168,40 +301,106 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* View More Button or Pagination */}
         <motion.div
-          className="text-center"
+          className="flex justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={handleViewMore}
-            className="z-20 backdrop-blur-sm bg-card/40 relative group overflow-hidden"
-          >
-            <motion.div
-              className="flex items-center justify-center"
-              initial={false}
-              animate={{ y: 0 }}
-              whileTap={{ y: allProjectsVisible ? -5 : 5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          {!showPagination ? (
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={handleViewMore}
+              className="z-30 backdrop-blur-sm bg-card/40 relative group overflow-hidden hover:bg-card/60"
             >
-              {allProjectsVisible ? (
-                <>
-                  Show Less{" "}
-                  <ChevronUp className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
-                </>
-              ) : (
-                <>
-                  View More Projects{" "}
-                  <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-                </>
-              )}
-            </motion.div>
-          </Button>
+              <motion.div
+                className="flex items-center justify-center"
+                whileTap={{ y: 2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                View More Projects{" "}
+                <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              </motion.div>
+            </Button>
+          ) : (
+            <div className="flex items-center space-x-2 z-30 relative">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  console.log("Previous clicked, current page:", currentPage)
+                  goToPrevious()
+                }}
+                disabled={currentPage === 1}
+                className="backdrop-blur-sm bg-card/40 hover:bg-card/60 cursor-pointer"
+                style={{ pointerEvents: "auto" }}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <Button
+                  key={page}
+                  variant={currentPage === page ? "default" : "outline"}
+                  size="sm"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    console.log("Page clicked:", page, "current page:", currentPage)
+                    goToPage(page)
+                  }}
+                  className={`backdrop-blur-sm cursor-pointer ${
+                    currentPage === page
+                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                      : "bg-card/40 hover:bg-card/60"
+                  }`}
+                  style={{ pointerEvents: "auto" }}
+                >
+                  {page}
+                </Button>
+              ))}
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  console.log("Next clicked, current page:", currentPage, "total pages:", totalPages)
+                  goToNext()
+                }}
+                disabled={currentPage === totalPages}
+                className="backdrop-blur-sm bg-card/40 hover:bg-card/60 cursor-pointer"
+                style={{ pointerEvents: "auto" }}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
         </motion.div>
+
+        {/* Page Info */}
+        {showPagination && (
+          <motion.div
+            className="text-center text-sm text-muted-foreground z-30 relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, projects.length)} of{" "}
+            {projects.length} projects
+            <br />
+            <span className="text-xs">
+              Current Page: {currentPage} | Total Pages: {totalPages} | Items per page: {itemsPerPage}
+            </span>
+          </motion.div>
+        )}
       </motion.div>
     </section>
-  );
+  )
 }
