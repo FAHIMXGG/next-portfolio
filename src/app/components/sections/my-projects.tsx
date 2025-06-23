@@ -68,7 +68,45 @@ export function ProjectsSection() {
       link: "https://ass-11-toys.web.app/",
       github: "https://github.com/FAHIMXGG/Ass11-toymarket",
     },
+    {
+      id: 6,
+      title: "CarRepairBook",
+      description:
+        "Car repair booking platform with admin and user dashboards.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA80XjQsx3pAuOtNPTFVbLHX9BzkjEfer7ndS1v",
+      tags: [
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+        "Tailwind CSS",
+        "daisyui",
+      ],
+      link: "https://car-doctor-lyart.vercel.app/",
+      github: "https://github.com/FAHIMXGG/car-doctor",
+    },
 
+    {
+      id: 5,
+      title: "BuySellCar",
+      description:
+        "Platform to buy, sell, and list cars with separate admin and user dashboards.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8vaWXd241laORUxEAk4jgC8MKBro3yVY9iZz2",
+      tags: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+        "Tailwind CSS",
+        "daisyui",
+      ],
+      link: "https://graceful-pithivier-654561.netlify.app/",
+      github: "https://github.com/FAHIMXGG/b2c-car-management",
+    },
     {
       id: 4,
       title: "ThePencilPalette",
@@ -89,149 +127,68 @@ export function ProjectsSection() {
       link: "https://ass-12-d2ded.web.app/",
       github: "https://github.com/FAHIMXGG/The_Pencil_Palette",
     },
-    {
-      id: 5,
-      title: "BuySellCar",
-      description:
-        "Platform to buy, sell, and list cars with separate admin and user dashboards.",
-      image: "",
-      tags: [
-        "React",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Firebase",
-        "Tailwind CSS",
-        "daisyui",
-      ],
-      link: "#",
-      github: "",
-    },
-    {
-      id: 6,
-      title: "Social Media Dashboard",
-      description:
-        "A comprehensive social media management and analytics platform",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "Prisma", "tRPC", "Tailwind CSS"],
-      link: "#",
-      github: "#",
-    },
+
     {
       id: 7,
-      title: "Cryptocurrency Tracker",
+      title: "WebAnalyzer",
       description:
-        "A real-time cryptocurrency price tracking and portfolio management app",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Redux", "CoinGecko API", "Chart.js"],
-      link: "#",
-      github: "#",
+        "Tool to extract site metadata, links, images, and download them as ZIP.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA85kQx2jIE7myflD1Mi0jt3SR8O9kB64FGbaoh",
+      tags: ["React", "Node.js", "Express.js", "Tailwind CSS", "Cheerio"],
+      link: "https://web-scraping-client.vercel.app/",
+      github: "https://github.com/FAHIMXGG/web-scraping-client",
     },
     {
       id: 8,
-      title: "Recipe Sharing Platform",
+      title: "Amazon Price Tracker",
       description:
-        "A community-driven platform for sharing and discovering recipes",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "MongoDB", "Cloudinary", "NextAuth"],
-      link: "#",
-      github: "#",
+        "Tracks Amazon product prices and notifies users via email on price updates.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8HML0jCExqVNMCeP7gcUO4fpwWHI0FEXzGmrA",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Mongoose",
+        "Tailwind CSS",
+        "Nodemailer",
+        "Axios",
+      ],
+      link: "https://price-tracker-wheat.vercel.app/",
+      github: "https://github.com/FAHIMXGG/Price_Tracker",
     },
     {
       id: 9,
-      title: "Fitness Tracking App",
+      title: "CasePython",
       description:
-        "A comprehensive fitness tracking application with workout plans",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React Native", "SQLite", "Redux", "Expo"],
-      link: "#",
-      github: "#",
+        "Create custom phone cases with image upload, drag-and-drop, Stripe checkout, and order tracking.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Prisma",
+        "NeonDB",
+        "Resend",
+        "Shadcn",
+        "Stripe",
+        "UploadThing",
+        "Framer Motion",
+        "Dropzone",
+        "Zod",
+      ],
+      link: "https://casepython.vercel.app/",
+      github: "",
     },
     {
       id: 10,
-      title: "Online Learning Platform",
-      description: "An interactive online learning platform with video courses",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "Supabase", "Stripe", "Video.js"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 11,
-      title: "Chat Application",
-      description:
-        "A real-time chat application with file sharing and group chats",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Socket.io", "Node.js", "MongoDB", "React"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 12,
-      title: "Portfolio Website",
-      description: "A modern portfolio website with animations and dark mode",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "Framer Motion", "Tailwind CSS", "MDX"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 13,
-      title: "Inventory Management System",
-      description:
-        "A comprehensive inventory tracking system for small businesses",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Node.js", "MySQL", "Express"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 14,
-      title: "Music Streaming App",
-      description: "A Spotify-like music streaming application with playlists",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Web Audio API", "Firebase", "Styled Components"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 15,
-      title: "Travel Booking Platform",
-      description:
-        "A full-featured travel booking platform with payment integration",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 16,
-      title: "Code Editor",
-      description:
-        "A web-based code editor with syntax highlighting and themes",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Monaco Editor", "WebSockets", "Node.js"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 17,
-      title: "Event Management System",
-      description: "A comprehensive event planning and management platform",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Vue.js", "Laravel", "MySQL", "Bootstrap"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 18,
-      title: "Blog CMS",
-      description:
-        "A headless CMS for managing blog content with rich text editor",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "Sanity", "GraphQL", "Tailwind CSS"],
-      link: "#",
-      github: "#",
+      title: "Real estate",
+      description: "Running...",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8aVC82URMU6o0S3kOD97NYGhZts5ujcfPm2qr",
+      tags: ["Next.js", "TypeScript", "Running"],
+      link: "",
+      github: "",
     },
   ];
 
@@ -469,7 +426,7 @@ export function ProjectsSection() {
         </motion.div>
 
         {/* Page Info */}
-        {showPagination && (
+        {/* {showPagination && (
           <motion.div
             className="text-center text-sm text-muted-foreground z-30 relative"
             initial={{ opacity: 0 }}
@@ -485,7 +442,7 @@ export function ProjectsSection() {
               per page: {itemsPerPage}
             </span>
           </motion.div>
-        )}
+        )} */}
       </motion.div>
     </section>
   );
