@@ -1,68 +1,117 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Github } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Github,
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export function ProjectsSection() {
-  const [showPagination, setShowPagination] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 6
+  const [showPagination, setShowPagination] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-  // Projects data - Expanded to 21 projects for perfect pagination (3 initial + 18 for 3 pages of 6 each)
   const projects = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce solution with Next.js, Stripe, and Supabase",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "Supabase", "Stripe", "Tailwind CSS"],
-      link: "#",
-      github: "#",
+      title: "DaimJobHub",
+      description:
+        "Job platform with 'Apply Now' and application tracking dashboard.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8nyFwH3COoKCvjI2WEYb0uAFtGeahRfU5lTpr",
+      tags: ["React", "Tailwind CSS", "Flowbite"],
+      link: "https://imaginative-biscotti-36f3c1.netlify.app/",
+      github: "https://github.com/FAHIMXGG/job-hub",
     },
     {
       id: 2,
-      title: "AI Content Generator",
-      description: "An AI-powered application that generates content using OpenAI's GPT-4",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Node.js", "OpenAI", "MongoDB"],
-      link: "#",
-      github: "#",
+      title: "Seoul Garden",
+      description:
+        "Explore chefs’ recipes and save favorites in a recipe book.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8zF7iBP3fd2ZgbTxyeN5UHVGuIRSmCLv6FtYa",
+      tags: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+        "Tailwind CSS",
+        "Flowbite",
+      ],
+      link: "https://ass-10-eb539.web.app/",
+      github: "https://github.com/FAHIMXGG/ass-10-chef-clint--",
     },
     {
       id: 3,
-      title: "Real-time Dashboard",
-      description: "A real-time analytics dashboard with WebSockets and data visualization",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Next.js", "Socket.io", "D3.js", "PostgreSQL"],
-      link: "#",
-      github: "#",
+      title: "PlayfulParadise",
+      description:
+        "Users can add, remove, and manage toys via personal and public dashboards.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8pAOc7ldDvUhQVKfNCekItyGJwXWS2Hdxs5rT", // Replace with actual image URL
+      tags: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+        "Tailwind CSS",
+        "Flowbite",
+      ],
+      link: "https://ass-11-toys.web.app/",
+      github: "https://github.com/FAHIMXGG/Ass11-toymarket",
     },
+
     {
       id: 4,
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["React", "Firebase", "Material-UI", "TypeScript"],
-      link: "#",
-      github: "#",
+      title: "ThePencilPalette",
+      description:
+        "Platform for drawing courses with dashboards for admin, instructors, and users.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8X28pEGTEzoByqxHPW8OmCYFQg2AV0di9DpaL",
+      tags: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+        "Tailwind CSS",
+        "daisyui",
+        "Stripe",
+      ],
+      link: "https://ass-12-d2ded.web.app/",
+      github: "https://github.com/FAHIMXGG/The_Pencil_Palette",
     },
     {
       id: 5,
-      title: "Weather Forecast App",
-      description: "A responsive weather application with location-based forecasts",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Vue.js", "Weather API", "Chart.js", "PWA"],
+      title: "BuySellCar",
+      description:
+        "Platform to buy, sell, and list cars with separate admin and user dashboards.",
+      image: "",
+      tags: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+        "Tailwind CSS",
+        "daisyui",
+      ],
       link: "#",
-      github: "#",
+      github: "",
     },
     {
       id: 6,
       title: "Social Media Dashboard",
-      description: "A comprehensive social media management and analytics platform",
+      description:
+        "A comprehensive social media management and analytics platform",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "Prisma", "tRPC", "Tailwind CSS"],
       link: "#",
@@ -71,7 +120,8 @@ export function ProjectsSection() {
     {
       id: 7,
       title: "Cryptocurrency Tracker",
-      description: "A real-time cryptocurrency price tracking and portfolio management app",
+      description:
+        "A real-time cryptocurrency price tracking and portfolio management app",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["React", "Redux", "CoinGecko API", "Chart.js"],
       link: "#",
@@ -80,7 +130,8 @@ export function ProjectsSection() {
     {
       id: 8,
       title: "Recipe Sharing Platform",
-      description: "A community-driven platform for sharing and discovering recipes",
+      description:
+        "A community-driven platform for sharing and discovering recipes",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "MongoDB", "Cloudinary", "NextAuth"],
       link: "#",
@@ -89,7 +140,8 @@ export function ProjectsSection() {
     {
       id: 9,
       title: "Fitness Tracking App",
-      description: "A comprehensive fitness tracking application with workout plans",
+      description:
+        "A comprehensive fitness tracking application with workout plans",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["React Native", "SQLite", "Redux", "Expo"],
       link: "#",
@@ -107,7 +159,8 @@ export function ProjectsSection() {
     {
       id: 11,
       title: "Chat Application",
-      description: "A real-time chat application with file sharing and group chats",
+      description:
+        "A real-time chat application with file sharing and group chats",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Socket.io", "Node.js", "MongoDB", "React"],
       link: "#",
@@ -125,7 +178,8 @@ export function ProjectsSection() {
     {
       id: 13,
       title: "Inventory Management System",
-      description: "A comprehensive inventory tracking system for small businesses",
+      description:
+        "A comprehensive inventory tracking system for small businesses",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["React", "Node.js", "MySQL", "Express"],
       link: "#",
@@ -143,7 +197,8 @@ export function ProjectsSection() {
     {
       id: 15,
       title: "Travel Booking Platform",
-      description: "A full-featured travel booking platform with payment integration",
+      description:
+        "A full-featured travel booking platform with payment integration",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
       link: "#",
@@ -152,7 +207,8 @@ export function ProjectsSection() {
     {
       id: 16,
       title: "Code Editor",
-      description: "A web-based code editor with syntax highlighting and themes",
+      description:
+        "A web-based code editor with syntax highlighting and themes",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["React", "Monaco Editor", "WebSockets", "Node.js"],
       link: "#",
@@ -170,69 +226,74 @@ export function ProjectsSection() {
     {
       id: 18,
       title: "Blog CMS",
-      description: "A headless CMS for managing blog content with rich text editor",
+      description:
+        "A headless CMS for managing blog content with rich text editor",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "Sanity", "GraphQL", "Tailwind CSS"],
       link: "#",
       github: "#",
     },
-    
-  ]
+  ];
 
   // Function to handle "View More" button click
   const handleViewMore = () => {
-    setShowPagination(true)
-    setCurrentPage(1)
-  }
+    setShowPagination(true);
+    setCurrentPage(1);
+  };
 
   // Calculate pagination
-  const totalPages = Math.ceil(projects.length / itemsPerPage)
+  const totalPages = Math.ceil(projects.length / itemsPerPage);
 
   // Get projects to display
   const getDisplayedProjects = () => {
     if (!showPagination) {
       // Initially show first 3 projects
-      return projects.slice(0, 3)
+      return projects.reverse().slice(0, 3);
     }
 
     // In pagination mode: show 6 per page from ALL projects (don't skip first 3)
-    const startIndex = (currentPage - 1) * itemsPerPage
-    const endIndex = startIndex + itemsPerPage
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
 
-    console.log("Pagination Debug:", {
-      totalProjects: projects.length,
-      currentPage,
-      itemsPerPage,
-      startIndex,
-      endIndex,
-      slicedProjects: projects.slice(startIndex, endIndex).length,
-      projectIds: projects.slice(startIndex, endIndex).map((p) => p.id),
-    })
+    // console.log("Pagination Debug:", {
+    //   totalProjects: projects.length,
+    //   currentPage,
+    //   itemsPerPage,
+    //   startIndex,
+    //   endIndex,
+    //   slicedProjects: projects.slice(startIndex, endIndex).length,
+    //   projectIds: projects.slice(startIndex, endIndex).map((p) => p.id),
+    // })
 
-    return projects.slice(startIndex, endIndex)
-  }
+    return projects.reverse().slice(startIndex, endIndex);
+  };
 
-  const displayedProjects = getDisplayedProjects()
+  const displayedProjects = getDisplayedProjects();
 
   // Pagination handlers
   const goToPage = (page: number) => {
-    console.log("goToPage called with:", page)
-    setCurrentPage(page)
-  }
+    console.log("goToPage called with:", page);
+    setCurrentPage(page);
+  };
 
   const goToPrevious = () => {
-    console.log("goToPrevious called, current page:", currentPage)
+    console.log("goToPrevious called, current page:", currentPage);
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1)
+      setCurrentPage(currentPage - 1);
     }
-  }
+  };
 
   const goToNext = () => {
-    console.log("goToNext called, current page:", currentPage, "total pages:", totalPages)
+    console.log(
+      "goToNext called, current page:",
+      currentPage,
+      "total pages:",
+      totalPages
+    );
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1)
+      setCurrentPage(currentPage + 1);
     }
-  }
+  };
 
   return (
     <section id="projects" className="py-20">
@@ -244,7 +305,9 @@ export function ProjectsSection() {
         className="space-y-12"
       >
         <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">My Projects</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            My Projects
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and the technologies I've used
           </p>
@@ -276,12 +339,21 @@ export function ProjectsSection() {
                   >
                     <ArrowRight className="h-5 w-5" />
                   </Link>
-                  <Link
-                    href={project.github}
-                    className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
-                  >
-                    <Github className="h-5 w-5" />
-                  </Link>
+                  {project.github ? (
+                    <Link
+                      href={project.github}
+                      className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <Github className="h-5 w-5" />
+                    </Link>
+                  ) : (
+                    <div
+                      className="rounded-full bg-white/10 backdrop-blur-sm p-2 text-gray-400 cursor-not-allowed"
+                      title="GitHub link not available"
+                    >
+                      <Github className="h-5 w-5" />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="p-6 space-y-4">
@@ -331,10 +403,10 @@ export function ProjectsSection() {
                 variant="outline"
                 size="sm"
                 onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  console.log("Previous clicked, current page:", currentPage)
-                  goToPrevious()
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log("Previous clicked, current page:", currentPage);
+                  goToPrevious();
                 }}
                 disabled={currentPage === 1}
                 className="backdrop-blur-sm bg-card/40 hover:bg-card/60 cursor-pointer"
@@ -343,36 +415,48 @@ export function ProjectsSection() {
                 <ChevronLeft className="h-4 w-4" />
               </Button>
 
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant={currentPage === page ? "default" : "outline"}
-                  size="sm"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    e.stopPropagation()
-                    console.log("Page clicked:", page, "current page:", currentPage)
-                    goToPage(page)
-                  }}
-                  className={`backdrop-blur-sm cursor-pointer ${
-                    currentPage === page
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "bg-card/40 hover:bg-card/60"
-                  }`}
-                  style={{ pointerEvents: "auto" }}
-                >
-                  {page}
-                </Button>
-              ))}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <Button
+                    key={page}
+                    variant={currentPage === page ? "default" : "outline"}
+                    size="sm"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      console.log(
+                        "Page clicked:",
+                        page,
+                        "current page:",
+                        currentPage
+                      );
+                      goToPage(page);
+                    }}
+                    className={`backdrop-blur-sm cursor-pointer ${
+                      currentPage === page
+                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                        : "bg-card/40 hover:bg-card/60"
+                    }`}
+                    style={{ pointerEvents: "auto" }}
+                  >
+                    {page}
+                  </Button>
+                )
+              )}
 
               <Button
                 variant="outline"
                 size="sm"
                 onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  console.log("Next clicked, current page:", currentPage, "total pages:", totalPages)
-                  goToNext()
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log(
+                    "Next clicked, current page:",
+                    currentPage,
+                    "total pages:",
+                    totalPages
+                  );
+                  goToNext();
                 }}
                 disabled={currentPage === totalPages}
                 className="backdrop-blur-sm bg-card/40 hover:bg-card/60 cursor-pointer"
@@ -392,15 +476,17 @@ export function ProjectsSection() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, projects.length)} of{" "}
+            Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
+            {Math.min(currentPage * itemsPerPage, projects.length)} of{" "}
             {projects.length} projects
             <br />
             <span className="text-xs">
-              Current Page: {currentPage} | Total Pages: {totalPages} | Items per page: {itemsPerPage}
+              Current Page: {currentPage} | Total Pages: {totalPages} | Items
+              per page: {itemsPerPage}
             </span>
           </motion.div>
         )}
       </motion.div>
     </section>
-  )
+  );
 }
