@@ -1,22 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  Github,
-} from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Github } from 'lucide-react';
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
 
 export function ProjectsSection() {
   const [showPagination, setShowPagination] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const [imageLoading, setImageLoading] = useState<Record<number, boolean>>({});
 
   const projects = [
     {
@@ -55,7 +51,7 @@ export function ProjectsSection() {
       description:
         "Users can add, remove, and manage toys via personal and public dashboards.",
       image:
-        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8pAOc7ldDvUhQVKfNCekItyGJwXWS2Hdxs5rT", // Replace with actual image URL
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8pAOc7ldDvUhQVKfNCekItyGJwXWS2Hdxs5rT",
       tags: [
         "React",
         "Node.js",
@@ -208,19 +204,8 @@ export function ProjectsSection() {
       return projects.reverse().slice(0, 3);
     }
 
-    // In pagination mode: show 6 per page from ALL projects (don't skip first 3)
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-
-    // console.log("Pagination Debug:", {
-    //   totalProjects: projects.length,
-    //   currentPage,
-    //   itemsPerPage,
-    //   startIndex,
-    //   endIndex,
-    //   slicedProjects: projects.slice(startIndex, endIndex).length,
-    //   projectIds: projects.slice(startIndex, endIndex).map((p) => p.id),
-    // })
 
     return projects.reverse().slice(startIndex, endIndex);
   };
@@ -250,6 +235,14 @@ export function ProjectsSection() {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
+  };
+
+  const handleImageLoad = (projectId: number) => {
+    setImageLoading(prev => ({ ...prev, [projectId]: false }));
+  };
+
+  const handleImageLoadStart = (projectId: number) => {
+    setImageLoading(prev => ({ ...prev, [projectId]: true }));
   };
 
   return (
@@ -282,12 +275,18 @@ export function ProjectsSection() {
               className="group rounded-lg overflow-hidden border bg-card/50 text-card-foreground shadow transition-all z-20 backdrop-blur-sm"
             >
               <div className="relative overflow-hidden">
+                {imageLoading[project.id] !== false && (
+                  <Skeleton className="w-full h-48 absolute inset-0 z-10" />
+                )}
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   width={500}
                   height={300}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                  onLoadStart={() => handleImageLoadStart(project.id)}
+                  onLoad={() => handleImageLoad(project.id)}
+                  onError={() => handleImageLoad(project.id)}
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                   <Link
@@ -424,25 +423,6 @@ export function ProjectsSection() {
             </div>
           )}
         </motion.div>
-
-        {/* Page Info */}
-        {/* {showPagination && (
-          <motion.div
-            className="text-center text-sm text-muted-foreground z-30 relative"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
-            {Math.min(currentPage * itemsPerPage, projects.length)} of{" "}
-            {projects.length} projects
-            <br />
-            <span className="text-xs">
-              Current Page: {currentPage} | Total Pages: {totalPages} | Items
-              per page: {itemsPerPage}
-            </span>
-          </motion.div>
-        )} */}
       </motion.div>
     </section>
   );
