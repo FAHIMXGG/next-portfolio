@@ -36,7 +36,7 @@ export default function RootLayout({
         className={inter.className}
       >
         
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <HeaderWrapper/>
           <StarsCanvas/>
           {children}
