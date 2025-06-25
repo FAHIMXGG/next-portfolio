@@ -71,7 +71,7 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
             >
               <Button>
                 <a
-                  href="https://drive.google.com/file/d/165onGPsFU5wvf6-ikHlycGol8H7V51Vn/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1RP0FO1BPCfCSiveyAep3c7aSC4G7mFHh/view?usp=sharing"
                   target="_blank"
                 >
                   View Resume
