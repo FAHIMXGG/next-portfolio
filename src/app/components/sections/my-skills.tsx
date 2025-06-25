@@ -5,12 +5,12 @@ import { motion } from "framer-motion"
 export function SkillsSection() {
   // Skills data
   const skills = [
-    { name: "React", level: 90 },
-    { name: "Next.js", level: 85 },
-    { name: "TypeScript", level: 80 },
+    { name: "React", level: 80 },
+    { name: "Next.js", level: 75 },
+    { name: "TypeScript", level: 70 },
     { name: "Tailwind CSS", level: 85 },
-    { name: "Node.js", level: 75 },
-    { name: "GraphQL", level: 70 },
+    { name: "Node.js", level: 70 },
+    { name: "WordPress", level: 80 },
   ]
 
   return (
@@ -65,7 +65,7 @@ export function SkillsSection() {
               "Express",
               "MongoDB",
               "PostgreSQL",
-              "GraphQL",
+              "WordPress",
               "Tailwind CSS",
             ].map((tech, index) => (
               <motion.div

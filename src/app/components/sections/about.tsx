@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Award, Briefcase, Code, Layers, Zap } from "lucide-react"
+import { motion } from "framer-motion";
+import { Award, Briefcase, Code, Layers, Zap } from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -14,7 +14,9 @@ export function AboutSection() {
         className="space-y-12"
       >
         <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Me</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            About Me
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             My journey, experience, and passion for web development
           </p>
@@ -41,7 +43,9 @@ export function AboutSection() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
                 </div>
-                <div className="text-xs text-muted-foreground ml-2">developer-portfolio.tsx</div>
+                <div className="text-xs text-muted-foreground ml-2">
+                  developer-portfolio.tsx
+                </div>
               </div>
               <div className="p-4 font-mono text-sm overflow-hidden">
                 <motion.div
@@ -50,8 +54,10 @@ export function AboutSection() {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   className="text-muted-foreground"
                 >
-                  <span className="text-blue-500">import</span> {" { useState, useEffect } "}{" "}
-                  <span className="text-blue-500">from</span> <span className="text-green-500">"react"</span>;
+                  <span className="text-blue-500">import</span>{" "}
+                  {" { useState, useEffect } "}{" "}
+                  <span className="text-blue-500">from</span>{" "}
+                  <span className="text-green-500">"react"</span>;
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -60,7 +66,8 @@ export function AboutSection() {
                   className="text-muted-foreground mt-2"
                 >
                   <span className="text-blue-500">import</span> {" { motion } "}{" "}
-                  <span className="text-blue-500">from</span> <span className="text-green-500">"framer-motion"</span>;
+                  <span className="text-blue-500">from</span>{" "}
+                  <span className="text-green-500">"framer-motion"</span>;
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -68,8 +75,8 @@ export function AboutSection() {
                   transition={{ duration: 0.5, delay: 1.2 }}
                   className="text-muted-foreground mt-4"
                 >
-                  <span className="text-purple-500">const</span> <span className="text-yellow-500">Portfolio</span> = (){" "}
-                  {"{"}
+                  <span className="text-purple-500">const</span>{" "}
+                  <span className="text-yellow-500">Portfolio</span> = () {"{"}
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -77,7 +84,8 @@ export function AboutSection() {
                   transition={{ duration: 0.5, delay: 1.4 }}
                   className="text-muted-foreground mt-2 ml-4"
                 >
-                  <span className="text-purple-500">const</span> [<span className="text-yellow-500">projects</span>,{" "}
+                  <span className="text-purple-500">const</span> [
+                  <span className="text-yellow-500">projects</span>,{" "}
                   <span className="text-yellow-500">setProjects</span>] ={" "}
                   <span className="text-yellow-500">useState</span>([]);
                 </motion.div>
@@ -135,7 +143,8 @@ export function AboutSection() {
                   transition={{ duration: 0.5, delay: 2.8 }}
                   className="text-muted-foreground mt-4"
                 >
-                  <span className="text-blue-500">export</span> <span className="text-blue-500">default</span>{" "}
+                  <span className="text-blue-500">export</span>{" "}
+                  <span className="text-blue-500">default</span>{" "}
                   <span className="text-yellow-500">Portfolio</span>;
                 </motion.div>
 
@@ -144,7 +153,11 @@ export function AboutSection() {
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: 1,
-                    transition: { duration: 0.3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" },
+                    transition: {
+                      duration: 0.3,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatType: "reverse",
+                    },
                   }}
                   className="w-2 h-5 bg-primary inline-block ml-1 mt-2"
                 />
@@ -155,7 +168,11 @@ export function AboutSection() {
             <motion.div
               animate={{
                 y: [0, -10, 0],
-                transition: { duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" },
+                transition: {
+                  duration: 3,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: "reverse",
+                },
               }}
               className="absolute top-12 right-12 bg-card p-2 rounded-full shadow-lg border"
             >
@@ -180,7 +197,12 @@ export function AboutSection() {
             <motion.div
               animate={{
                 y: [0, -15, 0],
-                transition: { duration: 3.5, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", delay: 1 },
+                transition: {
+                  duration: 3.5,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: "reverse",
+                  delay: 1,
+                },
               }}
               className="absolute bottom-24 right-24 bg-card p-2 rounded-full shadow-lg border"
             >
@@ -197,14 +219,17 @@ export function AboutSection() {
           >
             <h3 className="text-2xl font-bold">My Background</h3>
             <p className="text-muted-foreground">
-              I'm a passionate Next.js developer with 5+ years of experience building modern web applications. I
-              specialize in creating fast, responsive, and user-friendly interfaces that provide exceptional user
-              experiences.
+              I'm a passionate Next.js developer with 2+ years of experience
+              building modern web applications. I specialize in creating fast,
+              responsive, and user-friendly interfaces that provide exceptional
+              user experiences.
             </p>
             <p className="text-muted-foreground">
-              My journey in web development started with HTML, CSS, and JavaScript, and I've since evolved to embrace
-              modern frameworks and tools like React, Next.js, and TypeScript. I'm constantly learning and adapting to
-              new technologies to stay at the forefront of web development.
+              My journey in web development started with HTML, CSS, and
+              JavaScript, and I've since evolved to embrace modern frameworks
+              and tools like React, Next.js, and TypeScript. I'm constantly
+              learning and adapting to new technologies to stay at the forefront
+              of web development.
             </p>
 
             {/* Animated timeline */}
@@ -213,7 +238,7 @@ export function AboutSection() {
               <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:-translate-x-1/2 before:bg-gradient-to-b before:from-primary before:via-primary/50 before:to-primary/0 before:h-full">
                 {[
                   {
-                    year: "2018",
+                    year: "2016",
                     title: "Started Web Development",
                     description:
                       "Began my journey with HTML, CSS, and JavaScript fundamentals. Built my first static websites and discovered my passion for creating on the web.",
@@ -222,34 +247,34 @@ export function AboutSection() {
                   },
                   {
                     year: "2019",
-                    title: "Learned React",
+                    title: "Learned Wordpress",
                     description:
-                      "Dove into React ecosystem and component-based architecture. Completed several personal projects and contributed to open source.",
+                      "Built and customized responsive websites using WordPress and Elementor. Developed dynamic eCommerce sites with WooCommerce, focusing on user experience, product flow, and conversion optimization. Completed personal and client projects, including custom theme styling and plugin integration.",
                     icon: "Layers",
                     delay: 0.5,
                   },
                   {
-                    year: "2020",
-                    title: "Mastered Next.js",
+                    year: "2023",
+                    title: "Learned React",
                     description:
-                      "Embraced server-side rendering and static site generation with Next.js. Built full-stack applications with optimized performance.",
+                      "Dove into React ecosystem and component-based architecture. Completed several personal projects and contributed to open source.",
                     icon: "Zap",
                     delay: 0.7,
                   },
                   {
-                    year: "2021",
+                    year: "2023",
+                    title: "Web Development Intern",
+                    description:
+                      "Worked as a MERN stack and WordPress developer. Contributed to full-stack features using MongoDB, Express, React, and Node.js, and built custom websites with WordPress and Elementor. Gained hands-on experience with WooCommerce and plugin customization.",
+                    icon: "Award",
+                    delay: 1.1,
+                  },
+                  {
+                    year: "2024",
                     title: "Freelance Developer",
                     description:
                       "Started freelancing for clients worldwide. Delivered e-commerce sites, dashboards, and custom web applications for various industries.",
                     icon: "Briefcase",
-                    delay: 0.9,
-                  },
-                  {
-                    year: "2023",
-                    title: "Senior Developer",
-                    description:
-                      "Promoted to senior role leading development teams. Architected large-scale applications and mentored junior developers.",
-                    icon: "Award",
                     delay: 1.1,
                   },
                 ].map((item, index) => (
@@ -264,7 +289,12 @@ export function AboutSection() {
                     <motion.div
                       initial={{ scale: 0, rotate: -50 }}
                       whileInView={{ scale: 1, rotate: 0 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 10, delay: item.delay + 0.2 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 10,
+                        delay: item.delay + 0.2,
+                      }}
                       viewport={{ once: true }}
                       className="relative flex items-center justify-center "
                     >
@@ -295,17 +325,29 @@ export function AboutSection() {
                         <h5 className="font-bold text-lg">{item.title}</h5>
                         <motion.div
                           whileHover={{ rotate: 15, scale: 1.2 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
                           className="p-2 rounded-full bg-primary/10 text-primary"
                         >
                           {item.icon === "Code" && <Code className="h-4 w-4" />}
-                          {item.icon === "Layers" && <Layers className="h-4 w-4" />}
+                          {item.icon === "Layers" && (
+                            <Layers className="h-4 w-4" />
+                          )}
                           {item.icon === "Zap" && <Zap className="h-4 w-4" />}
-                          {item.icon === "Briefcase" && <Briefcase className="h-4 w-4" />}
-                          {item.icon === "Award" && <Award className="h-4 w-4" />}
+                          {item.icon === "Briefcase" && (
+                            <Briefcase className="h-4 w-4" />
+                          )}
+                          {item.icon === "Award" && (
+                            <Award className="h-4 w-4" />
+                          )}
                         </motion.div>
                       </div>
-                      <p className="text-muted-foreground text-sm mt-2">{item.description}</p>
+                      <p className="text-muted-foreground text-sm mt-2">
+                        {item.description}
+                      </p>
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: "100%" }}
@@ -345,8 +387,10 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 className="p-4 rounded-lg border bg-card/10 z-10 backdrop-blur-sm"
               >
-                <div className="text-3xl font-bold text-primary">5+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
+                <div className="text-3xl font-bold text-primary">2+</div>
+                <div className="text-sm text-muted-foreground">
+                  Years Experience
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -355,8 +399,10 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 className="p-4 rounded-lg border bg-card/10 z-10 backdrop-blur-sm"
               >
-                <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground">Projects Completed</div>
+                <div className="text-3xl font-bold text-primary">20+</div>
+                <div className="text-sm text-muted-foreground">
+                  Projects Completed
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -365,8 +411,10 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 className="p-4 rounded-lg border bg-/10 z-10 backdrop-blur-sm"
               >
-                <div className="text-3xl font-bold text-primary">30+</div>
-                <div className="text-sm text-muted-foreground">Happy Clients</div>
+                <div className="text-3xl font-bold text-primary">7+</div>
+                <div className="text-sm text-muted-foreground">
+                  Happy Clients
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -376,12 +424,14 @@ export function AboutSection() {
                 className="p-4 rounded-lg border bg-/10 z-10 backdrop-blur-sm"
               >
                 <div className="text-3xl font-bold text-primary">12+</div>
-                <div className="text-sm text-muted-foreground">Technologies</div>
+                <div className="text-sm text-muted-foreground">
+                  Technologies
+                </div>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </motion.div>
     </section>
-  )
+  );
 }

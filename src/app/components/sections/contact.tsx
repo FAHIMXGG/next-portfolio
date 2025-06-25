@@ -194,7 +194,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-medium">Email</h4>
-                  <p className="text-muted-foreground">hello@example.com</p>
+                  <p className="text-muted-foreground">ahasanulhaquefahimx@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -203,7 +203,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-medium">LinkedIn</h4>
-                  <p className="text-muted-foreground">linkedin.com/in/yourname</p>
+                  <p className="text-muted-foreground">https://www.linkedin.com/in/fahimx</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -212,7 +212,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-medium">GitHub</h4>
-                  <p className="text-muted-foreground">github.com/yourname</p>
+                  <p className="text-muted-foreground">https://github.com/FAHIMXGG</p>
                 </div>
               </div>
             </div>

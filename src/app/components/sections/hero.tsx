@@ -1,18 +1,22 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion";
+import { ArrowRight, Facebook, Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { BsDiscord, BsWhatsapp } from "react-icons/bs";
 
 interface HeroSectionProps {
-  scrollToSection: (sectionId: string) => void
+  scrollToSection: (sectionId: string) => void;
 }
 
 export function HeroSection({ scrollToSection }: HeroSectionProps) {
   return (
-    <section id="home" className="min-h-[calc(100vh-6rem)] flex flex-col justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-[calc(100vh-6rem)] flex flex-col justify-center relative overflow-hidden"
+    >
       {/* Animated Block Background */}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
@@ -56,8 +60,8 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-muted-foreground max-w-lg backdrop-blur-sm bg-background/30 p-4 rounded-lg"
             >
-              I specialize in creating fast, responsive, and user-friendly web applications using the latest
-              technologies in the React ecosystem.
+              I specialize in creating fast, responsive, and user-friendly web
+              applications using the latest technologies in the React ecosystem.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -65,10 +69,18 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-wrap gap-3"
             >
-              <Button onClick={() => scrollToSection("contact")}>
-                Contact Me <ArrowRight className="ml-2 h-4 w-4" />
+              <Button>
+                <a
+                  href="https://drive.google.com/file/d/165onGPsFU5wvf6-ikHlycGol8H7V51Vn/view?usp=sharing"
+                  target="_blank"
+                >
+                  View Resume
+                </a>
               </Button>
-              <Button variant="outline" onClick={() => scrollToSection("projects")}>
+              <Button
+                variant="outline"
+                onClick={() => scrollToSection("projects")}
+              >
                 View Projects
               </Button>
             </motion.div>
@@ -78,15 +90,45 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="flex gap-4 pt-4"
             >
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link
+                href="https://github.com/FAHIMXGG"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link
+                href="https://www.linkedin.com/in/fahimx/"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link
+                href="https://wa.link/a8gcn6"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <BsWhatsapp className="h-6 w-6" />
+                <span className="sr-only">WhatsApp</span>
+              </Link>
+              <Link
+                href="https://www.facebook.com/FAHIMX007/"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Facebook className="h-6 w-6" />
+                <span className="sr-only">Facebook</span>
+              </Link>
+              <Link
+                href="https://discord.com/users/405654158901903361"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <BsDiscord className="h-6 w-6" />
+                <span className="sr-only">Discoed</span>
+              </Link>
+              <Link
+                href="mailto:ahasanulhaquefahimx@gmail.com"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </Link>
@@ -114,5 +156,5 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
