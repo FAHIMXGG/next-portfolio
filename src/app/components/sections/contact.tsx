@@ -82,10 +82,20 @@ export function ContactSection() {
 
     setFormStatus("submitting")
 
-    // Simulate API call with timeout
     try {
-      // In a real app, you would send the form data to your API here
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message")
+      }
 
       setFormStatus("success")
 
