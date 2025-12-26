@@ -207,15 +207,15 @@ export function ProjectsSection() {
       image:
         "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8RTPfAzdSqs4dFgHDt6XB1wou0UaK2kcyebV9",
       tags: [
-        "Next.js",
-        "TypeScript",
-        "Prisma",
-        "Resend",
-        "Shadcn",
-        "Stripe",
-        "Framer Motion",
-        "Dropzone",
-        "Zod",
+        "React 19",
+        "TypeScript 5",
+        "Vite",
+        "Axios",
+        "React Router",
+        "Lucide React",
+        "Driver.js",
+        "Sonner",
+        "Shadcn/ui"
       ],
       tech: [
         "React 19",
@@ -250,15 +250,15 @@ export function ProjectsSection() {
       image:
         "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8ckvNLc5a2XCQiLN0kJjdUvuIVY75OzDTSxAZ",
       tags: [
-        "Next.js",
+        "Next.js 15",
         "TypeScript",
+        "Radix UI",
+        "NextAuth.js",
         "Prisma",
-        "Resend",
-        "Shadcn",
-        "Stripe",
-        "Framer Motion",
-        "Dropzone",
-        "Zod",
+        "SQLite",
+        "UploadThing",
+        "Quill.js",
+        "Axios",
       ],
       tech: [
         "Next.js 15",
@@ -278,26 +278,28 @@ export function ProjectsSection() {
       github: "https://github.com/FAHIMXGG/a7-blog",
     },
     {
-        id: 12,
+      id: 12,
       title: "CasePython",
       description:
         "CasePython is a full-stack custom e-commerce platform for designing phone cases with real-time previews and secure Stripe payments",
       brief_description:
         "CasePython is a full-stack custom e-commerce platform that allows users to design personalized phone cases by uploading images, adjusting placement in real time, selecting phone models, materials, finishes, and colors, and completing secure purchases through Stripe. The system includes a customer dashboard for order tracking, discounts, and support tickets, as well as a powerful admin panel for managing orders, users, coupons, revenue analytics, and fulfillment workflows.",
-      challenges: "Complex image manipulation, Stripe webhook syncing, auth + user sync, coupon validation, configuration state management, order lifecycle handling, and type safety across stack.",
-      improvements: "Fix coupon bug, add RBAC, improve error logging and performance, testing, advanced design tools, shipping integration, analytics, multi-product support, AI features, and mobile app.",
+      challenges:
+        "Complex image manipulation, Stripe webhook syncing, auth + user sync, coupon validation, configuration state management, order lifecycle handling, and type safety across stack.",
+      improvements:
+        "Fix coupon bug, add RBAC, improve error logging and performance, testing, advanced design tools, shipping integration, analytics, multi-product support, AI features, and mobile app.",
       image:
         "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
       tags: [
-        "Next.js",
+        "Next.js 14",
         "TypeScript",
+        "Radix UI",
         "Prisma",
-        "Resend",
-        "Shadcn",
+         "Clerk",
+        "PostgreSQL",
         "Stripe",
-        "Framer Motion",
-        "Dropzone",
-        "Zod",
+        "UploadThing",
+        "React Query",
       ],
       tech: [
         "Next.js 14",
@@ -323,34 +325,33 @@ export function ProjectsSection() {
         "Travel Buddy is a full-stack travel networking platform connecting travelers through trips, profiles, and social interactions.",
       brief_description:
         "Travel Buddy is a feature-rich full-stack travel networking platform that connects travelers based on destinations, interests, and travel plans. Users can create detailed profiles, publish and join trips, write blogs, upload galleries, subscribe to premium plans, and interact socially through reviews and ratings. The platform includes advanced search, role-based admin management, secure payments, and scalable architecture designed for a global travel community.",
-      challenges: "Complex auth and session sync, inconsistent backend API responses, RBAC implementation, Stripe subscription flow, rich text editor with SSR, and advanced form validation.",
-      improvements: "Standardize API responses, improve testing and performance, add real-time chat and notifications, enhance security, migrate fully to PostgreSQL, add mobile app and AI-based travel matching",
+      challenges:
+        "Complex auth and session sync, inconsistent backend API responses, RBAC implementation, Stripe subscription flow, rich text editor with SSR, and advanced form validation.",
+      improvements:
+        "Standardize API responses, improve testing and performance, add real-time chat and notifications, enhance security, migrate fully to PostgreSQL, add mobile app and AI-based travel matching",
       image:
         "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA84mt2P1chNFL5iU8vGo2xRjCadWIgzVBK0s7M",
       tags: [
-        "Next.js",
+        "Next.js 15",
         "TypeScript",
-        "Prisma",
-        "Resend",
-        "Shadcn",
-        "Stripe",
-        "Framer Motion",
-        "Dropzone",
-        "Zod",
-      ],
-      tech: [
-        "Next.js 14",
-        "React 18",
-        "TypeScript",
-        "Tailwind CSS",
-        "Radix UI",
+        "Radix UI + Shadcn/ui",
         "Prisma",
         "PostgreSQL",
-        "Clerk",
+        "NextAuth.js",
         "Stripe",
         "UploadThing",
-        "Sharp",
-        "React Query",
+      ],
+      tech: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Radix UI + Shadcn/ui",
+        "Prisma",
+        "SQLite/PostgreSQL",
+        "NextAuth.js",
+        "Stripe",
+        "UploadThing",
       ],
       link: "https://a8travel-client.vercel.app/",
       github: "https://github.com/FAHIMXGG/A8travel-client",
@@ -485,9 +486,7 @@ export function ProjectsSection() {
                   onLoad={() => handleImageLoad(project.id)}
                   onError={() => handleImageLoad(project.id)}
                 />
-                <div 
-                  className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 pointer-events-none"
-                >
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 pointer-events-none">
                   <Link
                     href={project.link}
                     className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors pointer-events-auto"
@@ -530,7 +529,9 @@ export function ProjectsSection() {
                 ) : (
                   <>
                     <h3 className="text-xl font-bold">{project.title}</h3>
-                    <p className="text-muted-foreground">{project.description}</p>
+                    <p className="text-muted-foreground">
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
                         <span
