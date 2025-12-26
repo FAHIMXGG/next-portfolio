@@ -7,18 +7,41 @@ import {
   ChevronLeft,
   ChevronRight,
   Github,
+  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useState } from "react";
+
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+  github?: string;
+  brief_description?: string;
+  tech?: string[];
+  challenges?: string;
+  improvements?: string;
+};
 
 export function ProjectsSection() {
   const [showPagination, setShowPagination] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const [imageLoading, setImageLoading] = useState<Record<number, boolean>>({});
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const projects = [
     {
@@ -257,6 +280,11 @@ export function ProjectsSection() {
     setImageLoading((prev) => ({ ...prev, [projectId]: true }));
   };
 
+  const handleCardClick = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
   return (
     <section id="projects" className="py-20">
       <motion.div
@@ -284,7 +312,8 @@ export function ProjectsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
               whileHover={{ y: -5 }}
-              className="group rounded-lg overflow-hidden border bg-card/50 text-card-foreground shadow transition-all z-20 backdrop-blur-sm"
+              onClick={() => handleCardClick(project)}
+              className="group rounded-lg overflow-hidden border bg-card/50 text-card-foreground shadow transition-all z-20 backdrop-blur-sm cursor-pointer"
             >
               <div className="relative overflow-hidden">
                 {imageLoading[project.id] !== false && (
@@ -300,17 +329,24 @@ export function ProjectsSection() {
                   onLoad={() => handleImageLoad(project.id)}
                   onError={() => handleImageLoad(project.id)}
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                <div
+                  className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <Link
                     href={project.link}
-                    className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors" target="blank"
+                    className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
+                    target="blank"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                   {project.github ? (
                     <Link
                       href={project.github}
-                      className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors" target="blank"
+                      className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
+                      target="blank"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="h-5 w-5" />
                     </Link>
@@ -341,6 +377,109 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Project Details Modal */}
+        <Dialog
+          open={isModalOpen}
+          onOpenChange={(open) => {
+            setIsModalOpen(open);
+            if (!open) {
+              setSelectedProject(null);
+            }
+          }}
+        >
+          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-card/95 backdrop-blur-sm">
+            {selectedProject && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-bold">
+                    {selectedProject.title}
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="space-y-6 mt-4">
+                  {/* Description */}
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Description</h3>
+                    <p className="text-muted-foreground">
+                      {selectedProject.brief_description ||
+                        selectedProject.description}
+                    </p>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Technologies</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {(selectedProject.tech || selectedProject.tags).map(
+                        (tech) => (
+                          <span
+                            key={tech}
+                            className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary/25 text-[#9346f8]"
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Links */}
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">Links</h3>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      {selectedProject.link && (
+                        <Link
+                          href={selectedProject.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Live Project
+                        </Link>
+                      )}
+                      {selectedProject.github && (
+                        <Link
+                          href={selectedProject.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/90 transition-colors"
+                        >
+                          <Github className="h-4 w-4" />
+                          GitHub Repository
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Challenges */}
+                  {selectedProject.challenges && (
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Challenges Faced While Developing the Project
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {selectedProject.challenges}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Improvements */}
+                  {selectedProject.improvements && (
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Future Improvements
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {selectedProject.improvements}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* View More Button or Pagination */}
         <motion.div
