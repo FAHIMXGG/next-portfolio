@@ -94,7 +94,7 @@ export function ProjectsSection() {
       github: "https://github.com/FAHIMXGG/Ass11-toymarket",
     },
     {
-      id: 6,
+      id: 4,
       title: "CarRepairBook",
       description:
         "Car repair booking platform with admin and user dashboards.",
@@ -132,7 +132,7 @@ export function ProjectsSection() {
       github: "https://github.com/FAHIMXGG/b2c-car-management",
     },
     {
-      id: 4,
+      id: 6,
       title: "ThePencilPalette",
       description:
         "Platform for drawing courses with dashboards for admin, instructors, and users.",
@@ -181,20 +181,27 @@ export function ProjectsSection() {
       github: "https://github.com/FAHIMXGG/Price_Tracker",
     },
     {
-      id: 11,
+      id: 9,
       title: "Safar",
       description:
         "Elementor template kit for travel agencies and tourism businesses.",
-      image: "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8Z5owNg6gWMN6jAs89xpfKOI1VHTmuLiF4Ghd",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8Z5owNg6gWMN6jAs89xpfKOI1VHTmuLiF4Ghd",
       tags: ["Elementor", "WordPress", "Travel", "Tourism", "Template Kit"],
       link: "https://safar.kraito.com/",
       github: "",
     },
     {
-      id: 9,
-      title: "CasePython",
+      id: 10,
+      title: "DigitalWallet",
       description:
-        "Create custom phone cases with image upload, drag-and-drop, Stripe checkout, and order tracking.",
+        "DigitalWallet is a secure digital wallet with real-time transactions and role-based access.",
+      brief_description:
+        "DigitalWallet is a comprehensive digital wallet platform designed for seamless and secure financial operations across multiple user roles. The platform allows users to send and receive money, manage wallet balances, and track transactions. Agents can process cash-in/cash-out operations, while administrators gain full oversight of the system, including user and wallet management. The application emphasizes real-time updates, guided onboarding, and responsive design with modern UI/UX practices, combining role-based dashboards, secure JWT authentication, and efficient state management for a scalable financial ecosystem.",
+      challenges:
+        "Implementing multi-role authentication and RBAC, handling complex state and API integration with Redux Toolkit and RTK Query, creating interactive guided tours, balancing client-side and server-side data processing, maintaining TypeScript type safety, optimizing bundle sizes with Vite, consistent form validation with React Hook Form + Zod, and ensuring responsive UI across devices.",
+      improvements:
+        "Remove debug code, implement server-side filtering and sorting, standardize error handling and loading states, introduce testing infrastructure, optimize performance (memoization, virtual scrolling, lazy loading), enhance security (CSRF, CSP, input sanitization), improve accessibility (ARIA, keyboard, screen reader support), add real-time features via WebSockets, multi-language support, advanced analytics, payment gateway integration, enhanced admin features, and develop a React Native mobile app.",
       image:
         "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
       tags: [
@@ -208,18 +215,143 @@ export function ProjectsSection() {
         "Dropzone",
         "Zod",
       ],
-      link: "https://casepython.vercel.app/",
-      github: "",
+      tech: [
+        "React 19",
+        "TypeScript 5",
+        "Vite",
+        "Redux Toolkit + RTK Query",
+        "Axios",
+        "React Router",
+        "Tailwind CSS",
+        "Shadcn/ui (Radix UI)",
+        "Lucide React",
+        "Driver.js",
+        "Sonner",
+        "React Hook Form",
+        "Zod",
+        "input-otp",
+      ],
+      link: "https://ass6-digital-wallet-client.vercel.app/",
+      github: "https://github.com/FAHIMXGG/ass6-digital-wallet-client",
     },
     {
-      id: 10,
-      title: "Real estate",
-      description: "Running...",
+      id: 11,
+      title: "Portify",
+      description:
+        "Portify is a full-stack portfolio and blog platform with rich editing and SEO-friendly pages.",
+      brief_description:
+        "Portify is a modern full-stack portfolio and blogging platform designed to showcase projects, skills, and technical experience while also providing a fully functional content management system. It allows authenticated users to create, edit, publish, and manage blog posts using a rich text editor, upload optimized media assets, and control content visibility through protected admin routes. The application leverages server-side rendering, incremental static regeneration, and SEO best practices to deliver fast, scalable, and search-engine-friendly pages, making it suitable for both personal branding and professional content publishing.",
+      challenges:
+        "Managing JWT authentication with an external backend, handling SSR incompatibilities of rich text editors, adapting to Next.js 15 breaking changes, maintaining type safety across API boundaries, optimizing images from multiple CDNs, and ensuring reliable error handling between frontend and backend services.",
+      improvements:
+        "Enhance database integration, improve error handling and testing, add advanced CMS features, optimize performance and SEO, strengthen security, introduce analytics and monitoring, improve accessibility, add internationalization, and reduce dependency on the external backend API.",
       image:
-        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8aVC82URMU6o0S3kOD97NYGhZts5ujcfPm2qr",
-      tags: ["Next.js", "TypeScript", "Running"],
-      link: "",
-      github: "",
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Prisma",
+        "Resend",
+        "Shadcn",
+        "Stripe",
+        "Framer Motion",
+        "Dropzone",
+        "Zod",
+      ],
+      tech: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Radix UI",
+        "Framer Motion",
+        "NextAuth.js",
+        "Prisma",
+        "SQLite",
+        "UploadThing",
+        "Quill.js",
+        "Axios",
+      ],
+      link: "https://a7-blog.vercel.app/",
+      github: "https://github.com/FAHIMXGG/a7-blog",
+    },
+    {
+        id: 12,
+      title: "CasePython",
+      description:
+        "CasePython is a full-stack custom e-commerce platform for designing phone cases with real-time previews and secure Stripe payments",
+      brief_description:
+        "CasePython is a full-stack custom e-commerce platform that allows users to design personalized phone cases by uploading images, adjusting placement in real time, selecting phone models, materials, finishes, and colors, and completing secure purchases through Stripe. The system includes a customer dashboard for order tracking, discounts, and support tickets, as well as a powerful admin panel for managing orders, users, coupons, revenue analytics, and fulfillment workflows.",
+      challenges: "Complex image manipulation, Stripe webhook syncing, auth + user sync, coupon validation, configuration state management, order lifecycle handling, and type safety across stack.",
+      improvements: "Fix coupon bug, add RBAC, improve error logging and performance, testing, advanced design tools, shipping integration, analytics, multi-product support, AI features, and mobile app.",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Prisma",
+        "Resend",
+        "Shadcn",
+        "Stripe",
+        "Framer Motion",
+        "Dropzone",
+        "Zod",
+      ],
+      tech: [
+        "Next.js 14",
+        "React 18",
+        "TypeScript",
+        "Tailwind CSS",
+        "Radix UI",
+        "Prisma",
+        "PostgreSQL",
+        "Clerk",
+        "Stripe",
+        "UploadThing",
+        "Sharp",
+        "React Query",
+      ],
+      link: "https://casepython.vercel.app/",
+      github: "https://github.com/FAHIMXGG/casepython",
+    },
+    {
+      id: 13,
+      title: "Travel Buddy",
+      description:
+        "Travel Buddy is a full-stack travel networking platform connecting travelers through trips, profiles, and social interactions.",
+      brief_description:
+        "Travel Buddy is a feature-rich full-stack travel networking platform that connects travelers based on destinations, interests, and travel plans. Users can create detailed profiles, publish and join trips, write blogs, upload galleries, subscribe to premium plans, and interact socially through reviews and ratings. The platform includes advanced search, role-based admin management, secure payments, and scalable architecture designed for a global travel community.",
+      challenges: "Complex auth and session sync, inconsistent backend API responses, RBAC implementation, Stripe subscription flow, rich text editor with SSR, and advanced form validation.",
+      improvements: "Standardize API responses, improve testing and performance, add real-time chat and notifications, enhance security, migrate fully to PostgreSQL, add mobile app and AI-based travel matching",
+      image:
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Prisma",
+        "Resend",
+        "Shadcn",
+        "Stripe",
+        "Framer Motion",
+        "Dropzone",
+        "Zod",
+      ],
+      tech: [
+        "Next.js 14",
+        "React 18",
+        "TypeScript",
+        "Tailwind CSS",
+        "Radix UI",
+        "Prisma",
+        "PostgreSQL",
+        "Clerk",
+        "Stripe",
+        "UploadThing",
+        "Sharp",
+        "React Query",
+      ],
+      link: "https://travel-buddy.vercel.app/",
+      github: "https://github.com/FAHIMXGG/travel-buddy",
     },
   ];
 
@@ -329,7 +461,7 @@ export function ProjectsSection() {
                   onLoad={() => handleImageLoad(project.id)}
                   onError={() => handleImageLoad(project.id)}
                 />
-                <div
+                <div 
                   className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -427,17 +559,15 @@ export function ProjectsSection() {
                   <div>
                     <h3 className="text-lg font-semibold mb-3">Links</h3>
                     <div className="flex flex-col sm:flex-row gap-3">
-                      {selectedProject.link && (
-                        <Link
-                          href={selectedProject.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                          Live Project
-                        </Link>
-                      )}
+                      <Link
+                        href={selectedProject.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Live Project
+                      </Link>
                       {selectedProject.github && (
                         <Link
                           href={selectedProject.github}
