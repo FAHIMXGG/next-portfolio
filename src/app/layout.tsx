@@ -31,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
-        className={inter.className}
+        className={`${inter.className} overflow-x-hidden`}
       >
         
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>

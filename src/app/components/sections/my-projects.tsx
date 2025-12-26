@@ -19,7 +19,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type Project = {
   id: number;
@@ -40,6 +40,8 @@ export function ProjectsSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const [imageLoading, setImageLoading] = useState<Record<number, boolean>>({});
+  const [imageLoaded, setImageLoaded] = useState<Record<number, boolean>>({});
+  const loadedImagesRef = useRef<Set<number>>(new Set());
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -203,7 +205,7 @@ export function ProjectsSection() {
       improvements:
         "Remove debug code, implement server-side filtering and sorting, standardize error handling and loading states, introduce testing infrastructure, optimize performance (memoization, virtual scrolling, lazy loading), enhance security (CSRF, CSP, input sanitization), improve accessibility (ARIA, keyboard, screen reader support), add real-time features via WebSockets, multi-language support, advanced analytics, payment gateway integration, enhanced admin features, and develop a React Native mobile app.",
       image:
-        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8RTPfAzdSqs4dFgHDt6XB1wou0UaK2kcyebV9",
       tags: [
         "Next.js",
         "TypeScript",
@@ -246,7 +248,7 @@ export function ProjectsSection() {
       improvements:
         "Enhance database integration, improve error handling and testing, add advanced CMS features, optimize performance and SEO, strengthen security, introduce analytics and monitoring, improve accessibility, add internationalization, and reduce dependency on the external backend API.",
       image:
-        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8ckvNLc5a2XCQiLN0kJjdUvuIVY75OzDTSxAZ",
       tags: [
         "Next.js",
         "TypeScript",
@@ -324,7 +326,7 @@ export function ProjectsSection() {
       challenges: "Complex auth and session sync, inconsistent backend API responses, RBAC implementation, Stripe subscription flow, rich text editor with SSR, and advanced form validation.",
       improvements: "Standardize API responses, improve testing and performance, add real-time chat and notifications, enhance security, migrate fully to PostgreSQL, add mobile app and AI-based travel matching",
       image:
-        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA8N83FG4HVCrUAi3dLK5eFGhBsnkq1Hx4tzMbg",
+        "https://nhs4sxaav5.ufs.sh/f/tl0YFFZLZVA84mt2P1chNFL5iU8vGo2xRjCadWIgzVBK0s7M",
       tags: [
         "Next.js",
         "TypeScript",
@@ -350,8 +352,8 @@ export function ProjectsSection() {
         "Sharp",
         "React Query",
       ],
-      link: "https://travel-buddy.vercel.app/",
-      github: "https://github.com/FAHIMXGG/travel-buddy",
+      link: "https://a8travel-client.vercel.app/",
+      github: "https://github.com/FAHIMXGG/A8travel-client",
     },
   ];
 
@@ -404,12 +406,31 @@ export function ProjectsSection() {
     }
   };
 
+  // Initialize loading state only for new projects that haven't loaded yet
+  useEffect(() => {
+    displayedProjects.forEach((project) => {
+      if (!loadedImagesRef.current.has(project.id)) {
+        setImageLoading((prev) => {
+          if (prev[project.id] === undefined) {
+            return { ...prev, [project.id]: true };
+          }
+          return prev;
+        });
+      }
+    });
+  }, [displayedProjects]);
+
   const handleImageLoad = (projectId: number) => {
+    loadedImagesRef.current.add(projectId);
+    setImageLoaded((prev) => ({ ...prev, [projectId]: true }));
     setImageLoading((prev) => ({ ...prev, [projectId]: false }));
   };
 
   const handleImageLoadStart = (projectId: number) => {
-    setImageLoading((prev) => ({ ...prev, [projectId]: true }));
+    // Only set loading if image hasn't been loaded before
+    if (!loadedImagesRef.current.has(projectId)) {
+      setImageLoading((prev) => ({ ...prev, [projectId]: true }));
+    }
   };
 
   const handleCardClick = (project: Project) => {
@@ -447,27 +468,29 @@ export function ProjectsSection() {
               onClick={() => handleCardClick(project)}
               className="group rounded-lg overflow-hidden border bg-card/50 text-card-foreground shadow transition-all z-20 backdrop-blur-sm cursor-pointer"
             >
-              <div className="relative overflow-hidden">
-                {imageLoading[project.id] !== false && (
-                  <Skeleton className="w-full h-48 absolute inset-0 z-[9999]" />
+              <div className="relative overflow-hidden bg-muted">
+                {imageLoading[project.id] && !imageLoaded[project.id] && (
+                  <Skeleton className="w-full h-48 absolute inset-0 z-10" />
                 )}
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   width={500}
                   height={300}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  className={`w-full h-48 object-cover transition-opacity duration-300 group-hover:scale-105 ${
+                    imageLoaded[project.id] ? "opacity-100" : "opacity-0"
+                  }`}
                   onLoadStart={() => handleImageLoadStart(project.id)}
                   onLoad={() => handleImageLoad(project.id)}
                   onError={() => handleImageLoad(project.id)}
                 />
                 <div 
-                  className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4"
-                  onClick={(e) => e.stopPropagation()}
+                  className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 pointer-events-none"
                 >
                   <Link
                     href={project.link}
-                    className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
+                    className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors pointer-events-auto"
                     target="blank"
                     onClick={(e) => e.stopPropagation()}
                   >
@@ -476,7 +499,7 @@ export function ProjectsSection() {
                   {project.github ? (
                     <Link
                       href={project.github}
-                      className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors"
+                      className="rounded-full bg-white/20 backdrop-blur-sm p-2 hover:bg-primary hover:text-white transition-colors pointer-events-auto"
                       target="blank"
                       onClick={(e) => e.stopPropagation()}
                     >
@@ -484,7 +507,7 @@ export function ProjectsSection() {
                     </Link>
                   ) : (
                     <div
-                      className="rounded-full bg-white/10 backdrop-blur-sm p-2 text-gray-400 cursor-not-allowed"
+                      className="rounded-full bg-white/10 backdrop-blur-sm p-2 text-gray-400 cursor-not-allowed pointer-events-auto"
                       title="GitHub link not available"
                     >
                       <Github className="h-5 w-5" />
@@ -493,18 +516,33 @@ export function ProjectsSection() {
                 </div>
               </div>
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">{project.title}</h3>
-                <p className="text-muted-foreground">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-block px-2 py-1 text-xs font-extrabold rounded-full bg-primary/25 text-[#9346f8]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                {imageLoading[project.id] && !imageLoaded[project.id] ? (
+                  <>
+                    <Skeleton className="h-7 w-3/4" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-5/6" />
+                    <div className="flex flex-wrap gap-2">
+                      <Skeleton className="h-6 w-16 rounded-full" />
+                      <Skeleton className="h-6 w-20 rounded-full" />
+                      <Skeleton className="h-6 w-24 rounded-full" />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="text-xl font-bold">{project.title}</h3>
+                    <p className="text-muted-foreground">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-block px-2 py-1 text-xs font-extrabold rounded-full bg-primary/25 text-[#9346f8]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </motion.div>
           ))}

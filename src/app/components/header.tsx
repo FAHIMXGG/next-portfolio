@@ -33,7 +33,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
         >
           <Code className="h-6 w-6 text-primary" />
           <span className="font-bold text-xl">
-            Dev<span className="text-primary">Portfolio</span>
+            Dev<span className="text-[#9346f8]">Portfolio</span>
           </span>
         </motion.div>
 

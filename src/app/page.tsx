@@ -31,7 +31,7 @@ export default function Portfolio() {
   if (!mounted) return null;
   return (
     <div
-      className={`min-h-screen text-foreground ${
+      className={`min-h-screen text-foreground overflow-x-hidden ${
         theme === "dark" ? "bg-[#040014]" : "bg-background"
       }`}
     >

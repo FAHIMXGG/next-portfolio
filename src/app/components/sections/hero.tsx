@@ -33,8 +33,8 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span className="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-bold backdrop-blur-sm">
-                  Next.js Developer
+                <span className="inline-block px-3 py-1 bg-primary/35 text-[#9346f8] rounded-full text-sm font-bold backdrop-blur-sm">
+                Full Stack Developer
                 </span>
               </motion.div>
               <motion.h1
