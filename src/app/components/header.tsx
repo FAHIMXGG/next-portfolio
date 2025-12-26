@@ -31,7 +31,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-2"
         >
-          <Code className="h-6 w-6 text-primary" />
+          <Code className="h-6 w-6 text-[#9346f8]" />
           <span className="font-bold text-xl">
             Dev<span className="text-[#9346f8]">Portfolio</span>
           </span>
@@ -48,8 +48,8 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             <button
               key={section}
               onClick={() => scrollToSection(section)}
-              className={`capitalize text-sm font-medium hover:text-primary transition-colors ${
-                activeSection === section ? "text-primary" : ""
+              className={`capitalize text-sm font-medium hover:text-[#9346f8] transition-colors ${
+                activeSection === section ? "text-[#9346f8]" : ""
               }`}
             >
               {section}
