@@ -47,7 +47,7 @@ const Cover = () => {
                   target="_blank"
                 >
                   <button className="bg-[#3ABFF8] text-[#0F1729] font-bold px-2 py-1 rounded-sm hover:shadow-lg hover:shadow-[#1A9ED4]">
-                    View Resumes
+                    View Resume
                   </button>
                 </a>
                 {/* <button className='bg-[#3ABFF8] text-[#0F1729] font-bold px-2 py-1 rounded-sm'>More About Me</button> */}
@@ -145,7 +145,7 @@ const Cover = () => {
                   <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><RiDiscordLine /></button>
                 </a>
                 <a href="https://wa.link/1tj2y9" target="_blank">
-                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><FaWhatsapp />s</button>
+                  <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><FaWhatsapp /></button>
                 </a>
               </div>
             </div>

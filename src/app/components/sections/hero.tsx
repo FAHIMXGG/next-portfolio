@@ -71,7 +71,7 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
             >
               <Button>
                 <a
-                  href="https://drive.google.com/file/d/1RP0FO1BPCfCSiveyAep3c7aSC4G7mFHh/view?usp=sharing"
+                  href="https://drive.google.com/file/d/19Jv0TLbeBrKXNqlGUb-cMfAtoEDdEE-8/view?usp=sharing"
                   target="_blank"
                 >
                   View Resume
@@ -105,7 +105,7 @@ export function HeroSection({ scrollToSection }: HeroSectionProps) {
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="https://wa.link/a8gcn6"
+                href="https://wa.link/1tj2y9"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <BsWhatsapp className="h-6 w-6" />
