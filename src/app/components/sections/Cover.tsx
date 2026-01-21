@@ -43,7 +43,7 @@ const Cover = () => {
             <div>
               <div className="flex gap-5 mt-5">
                 <a
-                  href="https://drive.google.com/file/d/165onGPsFU5wvf6-ikHlycGol8H7V51Vn/view?usp=sharing"
+                  href="https://drive.google.com/file/d/19Jv0TLbeBrKXNqlGUb-cMfAtoEDdEE-8/view?usp=sharing"
                   target="_blank"
                 >
                   <button className="bg-[#3ABFF8] text-[#0F1729] font-bold px-2 py-1 rounded-sm hover:shadow-lg hover:shadow-[#1A9ED4]">
@@ -144,7 +144,7 @@ const Cover = () => {
                 >
                   <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><RiDiscordLine /></button>
                 </a>
-                <a href="https://wa.link/a8gcn6" target="_blank">
+                <a href="https://wa.link/1tj2y9" target="_blank">
                   <button className="text-3xl  hover:border-[#1A9ED4] rounded-full hover:shadow-lg hover:shadow-[#1A9ED4]"><FaWhatsapp /></button>
                 </a>
               </div>
